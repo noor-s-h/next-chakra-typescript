@@ -1,5 +1,4 @@
-import { ReactNode, PropsWithChildren } from 'react'
-import { LinkProps as ChakraLinkProps } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 
 export interface ChildrenProps {
   children: ReactNode
@@ -8,11 +7,6 @@ export interface ChildrenProps {
 export type OnClickType = {
   onClick: () => void
 }
-
-export type LinkProps = ChakraLinkProps &
-  PropsWithChildren<{
-    href: string
-  }>
 
 export interface NavMenuProps {
   label: string
