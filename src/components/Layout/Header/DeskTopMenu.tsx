@@ -50,7 +50,6 @@ export default function DeskTopMenu({
               variant="link"
             >
               {label}
-              {depthLevel}
               <Icon
                 as={nullishDepthLevel > 0 ? ChevronRightIcon : ChevronDownIcon}
                 w={5}
@@ -85,7 +84,6 @@ export default function DeskTopMenu({
           borderRadius="4"
         >
           {label}
-          {depthLevel}
         </NavLink>
       )}
     </ListItem>
