@@ -69,14 +69,7 @@ export default function Header() {
             </List>
           )}
           {isMobile && (
-            <Box
-              pos="fixed"
-              top="calc(3.5rem + 1px)"
-              maxH="calc(100vh - (3.5rem + 1px))"
-              left={0}
-              right={0}
-              overflow="auto"
-            >
+            <Box pos="fixed" top="calc(3.5rem + 1px)" left={0} right={0}>
               <Collapse in={isOpen} unmountOnExit>
                 <List
                   display="flex"
@@ -85,6 +78,8 @@ export default function Header() {
                   p="1rem"
                   borderBottom="1px"
                   borderColor="gray.200"
+                  maxH="80vh"
+                  overflow="auto"
                 >
                   {NavData.map((data) => (
                     <MobileMenu key={data.label} {...data} onClick={onClose} />
