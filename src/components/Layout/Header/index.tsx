@@ -23,13 +23,18 @@ export default function Header() {
   const isMobile = useMediaQuery('(max-width: 52em)')
 
   return (
-    <Box position="sticky" top={0} zIndex={1} bg="white">
+    <Box
+      position="sticky"
+      top={0}
+      zIndex={1}
+      bg="white"
+      borderBottom="1px"
+      borderColor="gray.200"
+    >
       <Container maxW="5xl">
         <Flex
           as="nav"
-          borderBottom="1px"
-          borderColor="gray.200"
-          h={{ base: '3rem', md: '4rem' }}
+          h={{ base: '3.5rem', md: '4rem' }}
           align="center"
           justify="space-between"
         >
@@ -63,22 +68,33 @@ export default function Header() {
               })}
             </List>
           )}
+          {isMobile && (
+            <Box
+              pos="fixed"
+              top="calc(3.5rem + 1px)"
+              maxH="calc(100vh - (3.5rem + 1px))"
+              left={0}
+              right={0}
+              overflow="auto"
+            >
+              <Collapse in={isOpen} unmountOnExit>
+                <List
+                  display="flex"
+                  flexDirection="column"
+                  bg="white"
+                  p="1rem"
+                  borderBottom="1px"
+                  borderColor="gray.200"
+                >
+                  {NavData.map((data) => (
+                    <MobileMenu key={data.label} {...data} onClick={onClose} />
+                  ))}
+                </List>
+              </Collapse>
+            </Box>
+          )}
           <AuthBtn onClick={onClose} />
         </Flex>
-        {isMobile && (
-          <Collapse in={isOpen} unmountOnExit>
-            <List
-              display="flex"
-              flexDirection="column"
-              borderBottom="1px"
-              borderColor="gray.200"
-            >
-              {NavData.map((data) => (
-                <MobileMenu key={data.label} {...data} onClick={onClose} />
-              ))}
-            </List>
-          </Collapse>
-        )}
       </Container>
     </Box>
   )

@@ -24,7 +24,13 @@ export default function MobileMenu({
     <ListItem>
       {childrens ? (
         <>
-          <Button w="100%" py=".5rem" variant="link" onClick={onToggle}>
+          <Button
+            w="100%"
+            py=".5rem"
+            my=".5rem"
+            variant="link"
+            onClick={onToggle}
+          >
             {label}
             <Icon
               as={ChevronDownIcon}
@@ -44,7 +50,7 @@ export default function MobileMenu({
           </Collapse>
         </>
       ) : (
-        <NavLink href={href ?? '#'} onClick={onClick}>
+        <NavLink href={href ?? '#'} onClick={onClick} my=".5rem">
           {label}
         </NavLink>
       )}
