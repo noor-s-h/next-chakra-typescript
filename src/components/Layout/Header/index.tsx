@@ -56,16 +56,13 @@ export default function Header() {
           <Logo onClick={onClose} />
           {isDeskTop && (
             <List display="flex" alignItems="center">
-              {NavData.map((data) => {
-                const depthLevel = 0
-                return (
-                  <DeskTopMenu
-                    key={data.label}
-                    {...data}
-                    depthLevel={depthLevel}
-                  />
-                )
-              })}
+              {NavData.map((data) => (
+                <DeskTopMenu
+                  key={data.label}
+                  {...data}
+                  depthLevel={0}
+                />
+              ))}
             </List>
           )}
           {isMobile && (

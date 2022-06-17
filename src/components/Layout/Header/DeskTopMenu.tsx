@@ -60,17 +60,14 @@ export default function DeskTopMenu({
           </PopoverTrigger>
           <PopoverContent width="inherit" minW="10rem" bg="white" p=".5rem">
             <List>
-              {childrens.map((data) => {
-                const newDepthLevel = nullishDepthLevel + 1
-                return (
-                  <DeskTopMenu
-                    key={data.label}
-                    {...data}
-                    depthLevel={newDepthLevel}
-                    onClick={onClose}
-                  />
-                )
-              })}
+              {childrens.map((data) => (
+                <DeskTopMenu
+                  key={data.label}
+                  {...data}
+                  depthLevel={nullishDepthLevel + 1}
+                  onClick={onClose}
+                />
+              ))}
             </List>
           </PopoverContent>
         </Popover>
